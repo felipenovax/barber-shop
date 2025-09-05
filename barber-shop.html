@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barber Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: #222;
+        color: #fff;
+        line-height: 1.6;
+      }
+      header {
+        background: #111;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      header nav a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      header nav a.active {
+        color: #f9c94d;
+      }
+      .btn-contato {
+        background: #f9c94d;
+        color: #111;
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+      .hero {
+        background: #f9c94d;
+        color: #111;
+        padding: 40px 20px;
+        border-radius: 15px;
+        margin: 30px auto;
+        width: 90%;
+        text-align: center;
+      }
+      .hero img {
+        max-width: 200px;
+        margin-top: 20px;
+      }
+      .store-buttons img {
+        height: 45px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      section {
+        margin: 40px auto;
+        width: 90%;
+        text-align: center;
+      }
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+      .step {
+        max-width: 250px;
+        margin: 15px;
+      }
+      .step span {
+        display: block;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .testimonial {
+        background: #333;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 20px auto;
+        width: 80%;
+        font-size: 18px;
+        font-style: italic;
+      }
+      .testimonial p {
+        margin: 15px 0;
+      }
+      .testimonial footer {
+        font-weight: bold;
+      }
+      .faq {
+        text-align: left;
+        max-width: 700px;
+        margin: 40px auto;
+      }
+      .faq h3 {
+        margin-bottom: 15px;
+      }
+      .faq-item {
+        margin: 10px 0;
+      }
+      .faq-item button {
+        background: none;
+        border: none;
+        color: #f9c94d;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+      }
+      .faq-item p {
+        display: none;
+        margin: 8px 0 15px 15px;
+        font-size: 14px;
+        color: #ddd;
+      }
+      footer {
+        background: #f9c94d;
+        color: #111;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 40px;
+        border-radius: 15px 15px 0 0;
+      }
+      footer .store-buttons img {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">✂️ Barber Home</div>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#como">Como baixar</a>
+        <a href="#quem">Quem usa</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+      <a href="#contato" class="btn-contato">Fale conosco</a>
+    </header>
+
+    <section class="hero">
+      <h1>
+        Barber Home, o seu barbeiro delivery.<br />Na sua casa ou na barbearia.
+      </h1>
+      <div class="store-buttons">
+        <img
+          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          alt="Apple Store"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          alt="Google Play"
+        />
+      </div>
+    </section>
+
+    <section id="como">
+      <h2>Como baixar</h2>
+      <p>É bem simples, basta seguir as instruções abaixo.</p>
+      <div class="steps">
+        <div class="step">
+          <span>01</span>
+          <p>
+            <strong>Baixe o aplicativo</strong><br />É gratuito e sempre será.
+            Baixe pela Apple Store ou Google Play.
+          </p>
+        </div>
+        <div class="step">
+          <span>02</span>
+          <p>
+            <strong>Instale o aplicativo</strong><br />Após instalar, siga as
+            instruções de uso.
+          </p>
+        </div>
+        <div class="step">
+          <span>03</span>
+          <p><strong>Pronto!</strong><br />Agora é só começar a usar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quem">
+      <h2>O que nossos usuários dizem sobre nosso app?</h2>
+      <div class="testimonial">
+        <p>
+          “Sou suspeito em falar desse aplicativo, ele foi construído de usuário
+          para usuário. A facilidade de chamar um barbeiro no meu conforto é sem
+          igual.”
+        </p>
+        <footer>– Dione Moreira</footer>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <h3>Ficou com alguma dúvida?</h3>
+      <div class="faq-item">
+        <button>O aplicativo ele é pago?</button>
+        <p>
+          100% gratuito e sempre será. Criado para você agendar com o barbeiro
+          mais próximo.
+        </p>
+      </div>
+      <div class="faq-item">
+        <button>Por que devo usar o app Barber Home?</button>
+        <p>
+          Porque facilita seu dia a dia e garante praticidade no agendamento.
+        </p>
+      </div>
+      <div class="faq-item">
+        <button>Posso adicionar conteúdos ao aplicativo?</button>
+        <p>No momento, não. O foco é o agendamento de barbeiros.</p>
+      </div>
+      <div class="faq-item">
+        <button>Existe uma versão Web do aplicativo?</button>
+        <p>Estamos trabalhando nisso, em breve novidades.</p>
+      </div>
+      <div class="faq-item">
+        <button>Quero contribuir em melhorar o app, como faço?</button>
+        <p>Entre em contato conosco pelo botão “Fale Conosco”.</p>
+      </div>
+    </section>
+
+    <footer>
+      <h2>Aproveite o que há de melhor no app. Baixe agora!</h2>
+      <div class="store-buttons">
+        <img
+          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          alt="Apple Store"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          alt="Google Play"
+        />
+      </div>
+    </footer>
+
+    <script>
+      // FAQ Toggle
+      document.querySelectorAll(".faq-item button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const p = btn.nextElementSibling;
+          p.style.display = p.style.display === "block" ? "none" : "block";
+        });
+      });
+    </script>
+  </body>
+</html>
