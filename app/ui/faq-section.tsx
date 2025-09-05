@@ -9,11 +9,13 @@ import {
   IconButton,
   Show,
   Stack,
+  Image,
   Text,
 } from '@chakra-ui/react';
 import { colors } from '../config/colors';
 import { LucideMinus, LucidePlus } from 'lucide-react';
-import { InboxIcon } from '../page';
+import NextImage from 'next/image';
+import inboxIcon from '@/app/assets/direct-inbox.png';
 import { SectionTitle } from './section-title';
 
 const faq = [
@@ -87,7 +89,9 @@ export const FaqSection = () => {
             </Text>
           </Stack>
           <Flex gap="2" mt={{ base: 7, md: 0.75 }}>
-            <InboxIcon color={colors.yellow} />
+            <Image asChild width="22px" height="22px">
+              <NextImage src={inboxIcon} alt="Logo" />
+            </Image>
             <Text color="white">Envie um e-mail</Text>
           </Flex>
           <Text color="white" mt={3} display={{ base: 'none', md: 'flex' }}>

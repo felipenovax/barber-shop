@@ -83,7 +83,7 @@ export const HeaderNav = () => {
         variant="plain"
         collapsible
         width="100%"
-        defaultValue={['menu']}
+        defaultValue={['']}
         onValueChange={() => setMenuOpen(!menuOpen)}
       >
         <Accordion.Item value="menu" padding="1rem 1.5rem" width="100%">

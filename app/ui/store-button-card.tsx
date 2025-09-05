@@ -1,5 +1,10 @@
-import { Card, Text } from '@chakra-ui/react';
+import { Card, Text, Image } from '@chakra-ui/react';
+import NextImage from 'next/image';
 import React from 'react';
+import { colors } from '../config/colors';
+
+import appleLogo from '@/app/assets/apple.png';
+import googleLogo from '@/app/assets/google-play.png';
 
 const Apple = () => {
   return (
@@ -70,7 +75,48 @@ const Google = () => {
 };
 
 export const StoreButtonCard = ({ type }: { type: 'google' | 'apple' }) => {
-  if (type === 'google') return <Google />;
-
-  return <Apple />;
+  return (
+    <Card.Root
+      color="white"
+      fontSize="lg"
+      fontWeight="bold"
+      width={{ base: '50%', md: '250px' }}
+      padding="0.75rem 1rem"
+      border="none"
+      borderRadius="xl"
+      backgroundColor="#18181b"
+      cursor="pointer"
+    >
+      <Card.Body
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        gap={{ base: '0.5rem', md: '0.5rem' }}
+        padding="0"
+      >
+        <Image
+          asChild
+          width={{ base: '17px', md: '42px', lg: '56px' }}
+          height="auto"
+        >
+          <NextImage
+            src={type === 'apple' ? appleLogo : googleLogo}
+            alt="Logo"
+          />
+        </Image>
+        <Text
+          color="white"
+          width={{ base: '100px', md: '150px' }}
+          textAlign={{ base: 'flex-start', md: 'center' }}
+          fontWeight="normal"
+          fontSize={{ base: 'x-small', md: 'md' }}
+        >
+          Baixe agora{' '}
+          <strong>
+            {type === 'apple' ? 'na Apple Store' : 'no Google Play'}
+          </strong>
+        </Text>
+      </Card.Body>
+    </Card.Root>
+  );
 };
