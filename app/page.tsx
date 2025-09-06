@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, IconButton, Separator } from '@chakra-ui/react';
+import { Container, IconButton } from '@chakra-ui/react';
 import { colors } from './config/colors';
 import { LucideArrowUp } from 'lucide-react';
 import { HeaderNav } from './ui/header-nav';

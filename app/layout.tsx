@@ -5,9 +5,9 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Next.js with Chakra UI',
+  title: 'Barber Shop',
   description:
-    'A modern web application built with Next.js, TypeScript, and Chakra UI',
+    'Barber Home, o seu barbeiro delivery. Na sua casa ou na barbearia.',
 };
 
 export default function RootLayout({
