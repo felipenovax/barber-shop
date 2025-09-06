@@ -146,7 +146,7 @@ export const HeaderNav = () => {
           Fale conosco
         </Button>
       </Grid>
-      <Bleed height="4.75rem" />
+      <Bleed display={{ base: 'block', md: 'none' }} height="4.75rem" />
       <Drawer.Root
         placement="top"
         open={menuOpen}
@@ -161,6 +161,7 @@ export const HeaderNav = () => {
             top="0"
             zIndex="10"
             width="100%"
+            display={{ base: 'flex', md: 'none' }}
             backgroundColor={colors.black}
           >
             <Box>
