@@ -96,8 +96,8 @@ export const StoreButtonCard = ({ type }: { type: 'google' | 'apple' }) => {
       >
         <Image
           asChild
-          width={{ base: '17px', md: '42px', lg: '56px' }}
-          height="auto"
+          height={{ base: '17px', md: '42px', lg: '56px' }}
+          width="auto"
         >
           <NextImage
             src={type === 'apple' ? appleLogo : googleLogo}

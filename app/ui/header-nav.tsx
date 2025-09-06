@@ -13,6 +13,8 @@ import {
   Accordion,
   Text,
   AbsoluteCenter,
+  CloseButton,
+  Bleed,
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import logo from '@/app/assets/Barber Home.svg';
@@ -144,7 +146,68 @@ export const HeaderNav = () => {
           Fale conosco
         </Button>
       </Grid>
-      <Accordion.Root
+      <Bleed height="4.75rem" />
+      <Drawer.Root
+        placement="top"
+        open={menuOpen}
+        onOpenChange={() => setMenuOpen(!menuOpen)}
+      >
+        <Drawer.Trigger asChild>
+          <Flex
+            position="fixed"
+            justifyContent="space-between"
+            alignItems="center"
+            padding="1rem"
+            top="0"
+            zIndex="10"
+            width="100%"
+            backgroundColor={colors.black}
+          >
+            <Box>
+              <Show
+                fallback={<LucideAlignJustify color={colors.yellow} />}
+                when={menuOpen}
+              >
+                <LucideX color="white" />
+              </Show>
+            </Box>
+            <NextImage src={logo} height={50} width={50} alt="Logo" />
+          </Flex>
+        </Drawer.Trigger>
+        <Portal>
+          <Drawer.Positioner top="4rem" border="none" zIndex="9">
+            <Drawer.Content
+              border="none"
+              backgroundColor={colors.black}
+              shadow="none"
+            >
+              <Drawer.Body padding="1rem">
+                <Stack alignItems="center" justifyContent="center">
+                  {menu.map((item) => (
+                    <Button
+                      key={item.id}
+                      variant="plain"
+                      color="white"
+                      fontSize="1.25rem"
+                      fontWeight="bold"
+                      onClick={() => {
+                        const element = document.getElementById(item.sectionId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        setMenuOpen(false);
+                      }}
+                    >
+                      {item.title}
+                    </Button>
+                  ))}
+                </Stack>
+              </Drawer.Body>
+            </Drawer.Content>
+          </Drawer.Positioner>
+        </Portal>
+      </Drawer.Root>
+      {/* <Accordion.Root
         display={{ base: 'flex', md: 'none' }}
         spaceY="4"
         variant="plain"
@@ -187,7 +250,7 @@ export const HeaderNav = () => {
             </Accordion.ItemBody>
           </Accordion.ItemContent>
         </Accordion.Item>
-      </Accordion.Root>
+      </Accordion.Root> */}
     </>
   );
 };
