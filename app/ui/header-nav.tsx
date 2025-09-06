@@ -1,5 +1,5 @@
 'use client';
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState, useEffect } from 'react';
 import {
   Grid,
   Flex,
@@ -21,13 +21,71 @@ import { LucideAlignJustify, LucideX } from 'lucide-react';
 import { Show } from '@chakra-ui/react';
 
 const menu = [
-  { id: '01', title: 'Home', href: '/' },
-  { id: '02', title: 'Como baixar', href: '/como-baixar' },
-  { id: '03', title: 'Quem usa', href: '/quem-usa' },
-  { id: '04', title: 'Dúvidas', href: '/duvidas' },
+  { id: '01', title: 'Home', href: '/', sectionId: 'hero-section' },
+  {
+    id: '02',
+    title: 'Como baixar',
+    href: '/como-baixar',
+    sectionId: 'steps-section',
+  },
+  {
+    id: '03',
+    title: 'Quem usa',
+    href: '/quem-usa',
+    sectionId: 'quote-section',
+  },
+  {
+    id: '04',
+    title: 'Dúvidas',
+    href: '/duvidas',
+    sectionId: 'faq-section',
+  },
 ];
 
+const useVisibleSection = (sectionIds: string[]) => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        {
+          root: null,
+          threshold: 0.5, // 50% da seção precisa estar visível
+        },
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [sectionIds]);
+
+  return activeSection;
+};
+
 export const HeaderNav = () => {
+  const sectionIds = [
+    'hero-section',
+    'steps-section',
+    'quote-section',
+    'faq-section',
+  ];
+  const activeSection = useVisibleSection(sectionIds);
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -53,10 +111,19 @@ export const HeaderNav = () => {
                   color="white"
                   fontSize="1.5rem"
                   fontWeight="bold"
+                  onClick={() => {
+                    const element = document.getElementById(item.sectionId);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   {item.title}
                 </Button>
-                <Box borderBottom="3px solid #FBD072" margin="0 1rem" />
+                <Box
+                  borderBottom={`3px solid ${activeSection === item.sectionId ? colors.yellow : 'transparent'}`}
+                  margin="0 1rem"
+                />
               </Stack>
               {index < menu.length - 1 && (
                 <Separator orientation="vertical" height="6" />
@@ -87,7 +154,11 @@ export const HeaderNav = () => {
         onValueChange={() => setMenuOpen(!menuOpen)}
       >
         <Accordion.Item value="menu" padding="1rem 1.5rem" width="100%">
-          <Accordion.ItemTrigger display="flex" justifyContent="space-between">
+          <Accordion.ItemTrigger
+            display="flex"
+            justifyContent="space-between"
+            paddingBlock="unset"
+          >
             <Box>
               <Show
                 fallback={<LucideAlignJustify color={colors.yellow} />}

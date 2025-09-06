@@ -32,7 +32,7 @@ export const StepsSection = () => {
   const { isMobile } = useDeviceType();
 
   return (
-    <Stack padding="0" gap="4" marginY="5rem">
+    <Stack padding="0" gap="4" marginY="5rem" id="steps-section">
       <SectionTitle
         title="Como baixar"
         description={`É bem simples, basta seguir as<br /> instruções abaixo.`}

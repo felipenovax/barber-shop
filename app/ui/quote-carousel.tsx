@@ -57,6 +57,7 @@ export const QuoteCarousel = () => {
 
   return (
     <Stack
+      id="quote-section"
       backgroundColor={colors.yellow}
       padding={{ base: '1rem', md: '4rem 2rem' }}
       borderRadius={{ base: 'lg', md: '3xl' }}

@@ -7,7 +7,7 @@ import { colors } from '../config/colors';
 
 export const HeroSection = () => {
   return (
-    <Box margin={{ base: 'unset', md: '4rem' }}>
+    <Box margin={{ base: 'unset', md: '4rem' }} id="hero-section">
       <Card.Root
         display="grid"
         gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
