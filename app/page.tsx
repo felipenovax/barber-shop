@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, IconButton } from '@chakra-ui/react';
+import { Box, Container, IconButton, Separator } from '@chakra-ui/react';
 import { colors } from './config/colors';
 import { LucideArrowUp } from 'lucide-react';
 import { HeaderNav } from './ui/header-nav';
@@ -23,6 +23,7 @@ export default function Home() {
       <HeaderNav />
       <HeroSection />
       <StepsSection />
+      <Separator display={{ base: 'block', md: 'none' }} marginBottom="2rem" />
       <QuoteCarousel />
       <Box id="faq-section">
         <FaqSection />
@@ -34,9 +35,9 @@ export default function Home() {
         backgroundColor={colors.yellow}
         position="fixed"
         bottom="2rem"
-        shadow="2xl"
+        shadow="xl"
         size="xl"
-        right="6rem"
+        right={{ md: '1rem', lg: '6rem' }}
         onClick={() => {
           const element = document.getElementById('top-element');
           if (element) {

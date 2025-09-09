@@ -62,8 +62,8 @@ export const FaqSection = () => {
     <>
       <SectionTitle
         display={{ base: 'flex', md: 'none' }}
-        title="Como baixar"
-        description={`É bem simples, basta seguir as<br /> instruções abaixo.`}
+        title="As perguntinhas mais frequentes"
+        description="Ficou com alguma duvida?"
       />
       <Bleed height="2rem" display={{ base: 'flex', md: 'none' }} />
       <Grid
@@ -81,20 +81,43 @@ export const FaqSection = () => {
           justifyContent={{ base: 'space-between', md: 'unset' }}
         >
           <Stack display={{ base: 'none', md: 'flex' }}>
-            <Text color={colors.yellow} fontWeight="bold">
+            <Text
+              color={colors.yellow}
+              fontWeight="bold"
+              fontSize={{ base: 'sm', md: 'xs', lg: 'md' }}
+            >
               As perguntinhas mais frequentes
             </Text>
-            <Text color="white" width="270px" fontSize="3xl" fontWeight="bold">
+            <Text
+              color="white"
+              width="270px"
+              fontSize={{ base: 'md', md: 'md', lg: '3xl' }}
+              fontWeight="bold"
+            >
               Ficou com alguma duvida?
             </Text>
           </Stack>
-          <Flex gap="2" mt={{ base: 7, md: 0.75 }}>
+          <Flex
+            gap="2"
+            mt={{ base: 7, md: 0.75 }}
+            alignItems="center"
+            onClick={() =>
+              window.open('mailto:contato@barberhome.com', '_blank')
+            }
+          >
             <Image asChild width="22px" height="22px">
               <NextImage src={inboxIcon} alt="Logo" />
             </Image>
-            <Text color="white">Envie um e-mail</Text>
+            <Text color="white" fontSize={{ base: 'xs', md: 'xs', lg: 'md' }}>
+              Envie um e-mail
+            </Text>
           </Flex>
-          <Text color="white" mt={3} display={{ base: 'none', md: 'flex' }}>
+          <Text
+            color="white"
+            mt={3}
+            display={{ base: 'none', md: 'flex' }}
+            fontSize={{ base: 'xs', md: 'xs', lg: 'md' }}
+          >
             Acompanhe nas redes
           </Text>
           <Flex gap="3" mt={{ base: 7, md: 0 }}>
@@ -102,6 +125,9 @@ export const FaqSection = () => {
               backgroundColor={colors.yellow}
               borderRadius="lg"
               size="md"
+              onClick={() =>
+                window.open('https://instagram.com/barber-shop', '_blank')
+              }
             >
               {/* Instagram */}
               <svg
@@ -110,7 +136,7 @@ export const FaqSection = () => {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="transparent"
-                stroke={colors.black}
+                stroke="white"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -124,10 +150,13 @@ export const FaqSection = () => {
               backgroundColor={colors.yellow}
               size="md"
               borderRadius="lg"
+              onClick={() =>
+                window.open('https://linkedin.com/in/barber-shop', '_blank')
+              }
             >
               {/* LinkedIn */}
               <svg
-                fill="#000000"
+                fill="white"
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -138,7 +167,10 @@ export const FaqSection = () => {
         </Stack>
 
         {/* Coluna direita */}
-        <Stack order={{ base: 1, md: 2 }} gap="1.75rem">
+        <Stack
+          order={{ base: 1, md: 2 }}
+          gap={{ base: '1.75rem', md: '0.75rem', lg: '1.75rem' }}
+        >
           {faq.map((question) => (
             <Collapsible.Root
               key={question.id}
@@ -151,7 +183,7 @@ export const FaqSection = () => {
                 display="flex"
                 gap="3"
                 textAlign="-webkit-auto"
-                fontSize={{ base: 'sm', md: 'xl' }}
+                fontSize={{ base: '1.125rem', md: 'xs', lg: 'xl' }}
                 fontWeight="bold"
                 color="white"
               >
@@ -166,7 +198,7 @@ export const FaqSection = () => {
               <Collapsible.Content>
                 <Box
                   padding="0rem 2rem"
-                  fontSize={{ base: 'md', md: 'xl' }}
+                  fontSize={{ base: 'md', md: 'xs', lg: 'xl' }}
                   fontWeight="thin"
                   color="white"
                 >

@@ -17,14 +17,15 @@ export const SectionTitle = ({
     <Stack
       mt="0.5rem"
       gap="0.5rem"
-      maxWidth={{ base: '70%', md: '800px' }}
+      maxWidth={{ base: '100%', md: '400px', lg: '800px' }}
       width="100%"
       margin="auto"
       display={display}
     >
       <Text
-        fontSize={{ base: 'lg', md: '3xl' }}
+        fontSize={{ base: 'lg', md: 'md', lg: '3xl' }}
         fontWeight="bold"
+        mb="1rem"
         color={colors.yellow}
         textAlign="center"
         lineHeight="1"
@@ -33,7 +34,7 @@ export const SectionTitle = ({
       </Text>
       <Text
         dangerouslySetInnerHTML={{ __html: description }}
-        fontSize={{ base: 'lg', md: '3rem' }}
+        fontSize={{ base: 'lg', md: '1.5rem', lg: '3rem' }}
         fontWeight="bold"
         color="white"
         textAlign="center"

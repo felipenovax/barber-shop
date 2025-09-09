@@ -111,7 +111,7 @@ export const HeaderNav = () => {
                 <Button
                   variant="plain"
                   color="white"
-                  fontSize="1.5rem"
+                  fontSize={{ base: '0.75rem', md: '0.75rem', lg: '1.5rem' }}
                   fontWeight="bold"
                   onClick={() => {
                     const element = document.getElementById(item.sectionId);
@@ -137,11 +137,17 @@ export const HeaderNav = () => {
         <Button
           variant="solid"
           color="white"
-          size="xl"
+          size={{ base: 'md', md: 'sm', lg: 'xl' }}
           fontWeight="bold"
           padding="1rem 1.5rem"
           borderRadius="l3"
           backgroundColor={colors.yellow}
+          onClick={() =>
+            window.open(
+              'https://api.whatsapp.com/send/?phone=55119999999996&text=Ol%C3%A1%21+Vim+do+Site+e+gostaria+de+falar+com+um+atendente...&type=phone_number&app_absent=0',
+              '_blank',
+            )
+          }
         >
           Fale conosco
         </Button>
@@ -190,7 +196,7 @@ export const HeaderNav = () => {
                       variant="plain"
                       color="white"
                       fontSize="1.25rem"
-                      fontWeight="bold"
+                      fontWeight={700}
                       onClick={() => {
                         const element = document.getElementById(item.sectionId);
                         if (element) {
@@ -208,50 +214,6 @@ export const HeaderNav = () => {
           </Drawer.Positioner>
         </Portal>
       </Drawer.Root>
-      {/* <Accordion.Root
-        display={{ base: 'flex', md: 'none' }}
-        spaceY="4"
-        variant="plain"
-        collapsible
-        width="100%"
-        defaultValue={['']}
-        onValueChange={() => setMenuOpen(!menuOpen)}
-      >
-        <Accordion.Item value="menu" padding="1rem 1.5rem" width="100%">
-          <Accordion.ItemTrigger
-            display="flex"
-            justifyContent="space-between"
-            paddingBlock="unset"
-          >
-            <Box>
-              <Show
-                fallback={<LucideAlignJustify color={colors.yellow} />}
-                when={menuOpen}
-              >
-                <LucideX color="white" />
-              </Show>
-            </Box>
-            <NextImage src={logo} height={50} width={50} alt="Logo" />
-          </Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <Accordion.ItemBody width="100%">
-              <Stack alignItems="center" justifyContent="center">
-                {menu.map((item) => (
-                  <Button
-                    key={item.id}
-                    variant="plain"
-                    color="white"
-                    fontSize="1.25rem"
-                    fontWeight="bold"
-                  >
-                    {item.title}
-                  </Button>
-                ))}
-              </Stack>
-            </Accordion.ItemBody>
-          </Accordion.ItemContent>
-        </Accordion.Item>
-      </Accordion.Root> */}
     </>
   );
 };

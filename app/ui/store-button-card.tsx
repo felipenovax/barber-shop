@@ -74,29 +74,48 @@ const Google = () => {
   );
 };
 
-export const StoreButtonCard = ({ type }: { type: 'google' | 'apple' }) => {
+export const StoreButtonCard = ({
+  type,
+  width,
+}: {
+  type: 'google' | 'apple';
+  width?: string;
+}) => {
   return (
     <Card.Root
       color="white"
       fontSize="lg"
       fontWeight="bold"
-      width={{ base: '50%', md: '250px' }}
-      padding="0.75rem 1rem"
+      width={width || { base: '50%', md: '75%', lg: '250px' }}
+      padding={{ base: '0.5rem', lg: '0.75rem 1rem' }}
       border="none"
-      borderRadius="xl"
+      borderRadius={{ base: 'l3', lg: 'xl' }}
       backgroundColor="#18181b"
       cursor="pointer"
+      onClick={() => {
+        if (type === 'apple') {
+          window.open(
+            'https://apps.apple.com/br/app/barber-home/id6446256666',
+            '_blank',
+          );
+        } else {
+          window.open(
+            'https://play.google.com/store/apps/details?id=com.barber.home',
+            '_blank',
+          );
+        }
+      }}
     >
       <Card.Body
         display="flex"
         flexDirection="row"
         alignItems="center"
-        gap={{ base: '0.5rem', md: '0.5rem' }}
+        gap={{ base: '0.5rem', lg: '0.5rem' }}
         padding="0"
       >
         <Image
           asChild
-          height={{ base: '17px', md: '42px', lg: '56px' }}
+          height={{ base: '20px', md: '42px', lg: '56px' }}
           width="auto"
         >
           <NextImage
@@ -106,10 +125,10 @@ export const StoreButtonCard = ({ type }: { type: 'google' | 'apple' }) => {
         </Image>
         <Text
           color="white"
-          width={{ base: '100px', md: '150px' }}
-          textAlign={{ base: 'flex-start', md: 'center' }}
+          width={{ base: '100px', lg: '150px' }}
+          textAlign={{ base: 'flex-start', lg: 'center' }}
           fontWeight="normal"
-          fontSize={{ base: 'x-small', md: 'md' }}
+          fontSize={{ base: 'x-small', md: 'xs', lg: 'md' }}
         >
           Baixe agora{' '}
           <strong>

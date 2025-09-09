@@ -29,10 +29,16 @@ const steps = [
 ];
 
 export const StepsSection = () => {
-  const { isMobile } = useDeviceType();
+  const { isMobile, isTable } = useDeviceType();
 
   return (
-    <Stack padding="0" gap="4" marginY="5rem" id="steps-section">
+    <Stack
+      padding="0"
+      gap="4"
+      marginTop="5rem"
+      marginBottom={{ base: '2rem', md: '5rem' }}
+      id="steps-section"
+    >
       <SectionTitle
         title="Como baixar"
         description={`É bem simples, basta seguir as<br /> instruções abaixo.`}
@@ -48,10 +54,14 @@ export const StepsSection = () => {
       >
         <Show when={!isMobile} fallback={null}>
           <NextImage
-            style={{ position: 'absolute', left: '20%', top: '-3rem' }}
+            style={{
+              position: 'absolute',
+              left: isTable ? '22%' : '20%',
+              top: '-3rem',
+            }}
             src={arrow}
-            width={190}
-            height={78}
+            width={isTable ? 120 : 190}
+            height={isTable ? 65 : 78}
             alt="Arrow"
           />
         </Show>
@@ -63,13 +73,13 @@ export const StepsSection = () => {
             backgroundColor="transparent"
             border="none"
           >
-            <Card.Body gap="2" padding={{ base: '1rem', md: 'unset' }}>
+            <Card.Body gap="2" padding={{ base: '1rem 0.75rem', md: 'unset' }}>
               <Box
                 backgroundColor="white"
                 padding={{ base: '0.25rem', md: '0' }}
-                borderRadius={{ base: 'md', md: '2xl' }}
-                width={{ base: '2rem', md: '3.25rem' }}
-                height={{ base: '2rem', md: '3.25rem' }}
+                borderRadius={{ base: 'md', lg: '2xl' }}
+                width={{ base: '2rem', lg: '3.25rem' }}
+                height={{ base: '2rem', lg: '3.25rem' }}
               >
                 <Span
                   alignItems="center"
@@ -78,7 +88,7 @@ export const StepsSection = () => {
                   height="100%"
                   color={colors.black}
                   fontWeight="bolder"
-                  fontSize={{ base: 'md', md: 'xl' }}
+                  fontSize={{ base: 'md', lg: 'xl' }}
                 >
                   {step.id}
                 </Span>
@@ -87,14 +97,14 @@ export const StepsSection = () => {
                 <Card.Title
                   mt="2"
                   color="white"
-                  fontSize={{ base: 'md', md: 'xl' }}
+                  fontSize={{ base: 'md', md: 'sm', lg: 'xl' }}
                   fontWeight="bolder"
                 >
                   {step.title}
                 </Card.Title>
                 <Card.Description
                   color="white"
-                  fontSize={{ base: 'sm', md: 'lg' }}
+                  fontSize={{ base: 'sm', md: 'xs', lg: 'lg' }}
                   fontWeight={{ base: 'thin', md: 'light' }}
                 >
                   {step.description}
@@ -105,10 +115,14 @@ export const StepsSection = () => {
         ))}
         <Show when={!isMobile} fallback={null}>
           <NextImage
-            style={{ position: 'absolute', left: '55%', bottom: '-5rem' }}
+            style={{
+              position: 'absolute',
+              left: isTable ? '50%' : '55%',
+              bottom: isTable ? '-4rem' : '-5rem',
+            }}
             src={arrowUpsidedown}
-            width={190}
-            height={78}
+            width={isTable ? 120 : 190}
+            height={isTable ? 65 : 78}
             alt="Arrow"
           />
         </Show>

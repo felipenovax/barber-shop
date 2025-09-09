@@ -12,6 +12,7 @@ import {
   IconButton,
   Grid,
   Image,
+  Bleed,
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { SectionTitle } from './section-title';
@@ -56,189 +57,106 @@ export const QuoteCarousel = () => {
   }, []);
 
   return (
-    <Stack
-      id="quote-section"
-      backgroundColor={colors.yellow}
-      padding={{ base: '1rem', md: '4rem 2rem' }}
-      borderRadius={{ base: 'lg', md: '3xl' }}
-      width={{ base: '100%', md: '90%' }}
-      gap="2rem"
-      margin="auto"
-    >
-      <Grid templateColumns={{ base: '1fr', md: 'auto fit-content auto' }}>
-        <Box width="70%" margin={{ base: 'auto 1rem', md: '-1rem auto' }}>
-          <Image
-            asChild
+    <Stack padding="0" gap="4" marginY="5rem">
+      <SectionTitle
+        title="Quem usa"
+        description="O que o nossos usuários dizem sobre o nosso app?"
+      />
+      <Bleed height={{ base: '1rem', md: 'unset' }} />
+
+      <Stack
+        id="quote-section"
+        margin="auto"
+        backgroundColor={colors.yellow}
+        padding={{ base: '1rem', md: '4rem 2rem' }}
+        borderRadius="3xl"
+        width="90%"
+        gap="2rem"
+      >
+        <Grid templateColumns={{ base: '1fr', md: 'auto fit-content auto' }}>
+          <Box width="70%" margin={{ base: 'auto 1rem', md: '-1rem auto' }}>
+            <Image
+              asChild
+              position="relative"
+              top={{ base: '2rem', md: 'unset' }}
+            >
+              <NextImage src={quote} alt="Logo" width={50} height={50} />
+            </Image>
+          </Box>
+
+          <Stack
+            gap="2rem"
+            paddingLeft={{ base: 'unset', md: '3rem' }}
+            paddingTop={{ base: '2rem', md: 'unset' }}
+          >
+            <Text
+              fontSize={{ base: '1.125rem', md: 'md', lg: '2.125rem' }}
+              fontWeight="bold"
+              lineHeight="1.2"
+              width="60%"
+              margin="auto"
+            >
+              {slides[currentIndex].description}
+            </Text>
+            <Text
+              fontSize={{ base: '1rem', md: 'md', lg: '1.875rem' }}
+              fontWeight="bold"
+              width="60%"
+              textAlign="center"
+              margin="auto"
+            >
+              {slides[currentIndex].author}
+            </Text>
+          </Stack>
+
+          <Box
+            width="70%"
+            rotate="180deg"
+            margin="-2rem auto"
             position="relative"
-            top={{ base: '2rem', md: 'unset' }}
+            top="-2rem"
           >
-            <NextImage src={quote} alt="Logo" width={50} height={50} />
-          </Image>
-        </Box>
+            <Image asChild position="relative" bottom="-3rem" left="-2rem">
+              <NextImage src={quote} alt="Logo" width={50} height={50} />
+            </Image>
+          </Box>
+        </Grid>
 
-        <Stack
-          gap="2rem"
-          paddingLeft={{ base: 'unset', md: '3rem' }}
-          paddingTop={{ base: '2rem', md: 'unset' }}
-        >
-          <Text
-            fontSize={{ base: '1.125rem', md: '2.125rem' }}
-            fontWeight="bold"
-            lineHeight="1.2"
-            width="60%"
-            margin="auto"
-          >
-            {slides[currentIndex].description}
-          </Text>
-          <Text
-            fontSize={{ base: '1rem', md: '1.875rem' }}
-            fontWeight="bold"
-            width="60%"
-            textAlign="center"
-            margin="auto"
-          >
-            {slides[currentIndex].author}
-          </Text>
-        </Stack>
-
-        <Box
-          width="70%"
-          rotate="180deg"
-          margin="-2rem auto"
-          position="relative"
-          top="-2rem"
-        >
-          <Image asChild position="relative" bottom="-3rem" left="-2rem">
-            <NextImage src={quote} alt="Logo" width={50} height={50} />
-          </Image>
-        </Box>
-      </Grid>
-
-      <Flex justifyContent="space-between" width="70%" margin="auto">
-        <Flex gap="1rem" alignItems="center">
-          <IconButton
-            onClick={prevSlide}
-            borderRadius="2xl"
-            size={{ base: 'sm', md: 'md' }}
-          >
-            <LucideArrowLeft />
-          </IconButton>
-          <Text
-            fontSize="2xl"
-            fontWeight="normal"
-            display={{ base: 'none', md: 'flex' }}
-          >
-            Anterior
-          </Text>
+        <Flex justifyContent="space-between" width="80%" margin="auto">
+          <Flex gap="1rem" alignItems="center">
+            <IconButton
+              onClick={prevSlide}
+              borderRadius={{ base: 'l3', lg: '2xl' }}
+              size={{ base: 'sm', md: 'md' }}
+            >
+              <LucideArrowLeft />
+            </IconButton>
+            <Text
+              fontSize={{ base: 'sm', md: 'lg', lg: '2xl' }}
+              fontWeight="normal"
+              display={{ base: 'none', md: 'flex' }}
+            >
+              Anterior
+            </Text>
+          </Flex>
+          <Flex gap="1rem" alignItems="center">
+            <Text
+              fontSize={{ base: 'sm', md: 'lg', lg: '2xl' }}
+              fontWeight="normal"
+              display={{ base: 'none', md: 'flex' }}
+            >
+              Próximo
+            </Text>
+            <IconButton
+              onClick={nextSlide}
+              borderRadius={{ base: 'l3', lg: '2xl' }}
+              size={{ base: 'sm', md: 'md' }}
+            >
+              <LucideArrowRight />
+            </IconButton>
+          </Flex>
         </Flex>
-        <Flex gap="1rem" alignItems="center">
-          <Text
-            fontSize="2xl"
-            fontWeight="normal"
-            display={{ base: 'none', md: 'flex' }}
-          >
-            Próximo
-          </Text>
-          <IconButton
-            onClick={nextSlide}
-            borderRadius="2xl"
-            size={{ base: 'sm', md: 'md' }}
-          >
-            <LucideArrowRight />
-          </IconButton>
-        </Flex>
-      </Flex>
+      </Stack>
     </Stack>
-    // <Stack padding="0" gap="4" marginY="5rem">
-    //   <SectionTitle
-    //     title="Quem usa"
-    //     description="O que nossos usuários dizem sobre nosso app?"
-    //   />
-    //   <Box
-    //     width="90%"
-    //     margin="auto"
-    //     marginTop={{ base: '1rem', md: '1.25rem' }}
-    //     padding={{ base: '1rem', md: '5rem 0 3rem 0' }}
-    //     bg={colors.yellow}
-    //     borderRadius={{ base: 'lg', md: '3xl' }}
-    //   >
-    //     <Box w="80%" h="100%" margin="auto" marginTop="4rem">
-    //       <Blockquote.Root
-    //         variant="plain"
-    //         colorPalette="teal"
-    //         margin={{ base: '0', md: 'auto' }}
-    //         w="80%"
-    //         gap="2rem"
-    //         position="relative"
-    //       >
-    //         <Blockquote.Icon
-    //           position="absolute"
-    //           top="-10"
-    //           left="-5"
-    //           color="#fff"
-    //           boxSize="20"
-    //         />
-    //         <Blockquote.Content
-    //           fontSize={{ base: 'lg', md: '3xl' }}
-    //           fontWeight="bold"
-    //           margin={{ base: '0', md: '0 2rem' }}
-    //           textAlign="center"
-    //           lineHeight="1.2"
-    //           color={colors.black}
-    //         >
-    //           {slides[currentIndex].description}
-    //         </Blockquote.Content>
-    //         <Blockquote.Caption w="100%">
-    //           <Text
-    //             w="100%"
-    //             fontSize={{ base: 'sm', md: 'xl' }}
-    //             fontWeight="bold"
-    //             textAlign="center"
-    //             color={colors.black}
-    //           >
-    //             {slides[currentIndex].author}
-    //           </Text>
-    //         </Blockquote.Caption>
-    //         <Blockquote.Icon
-    //           position="absolute"
-    //           bottom="5"
-    //           right="-5"
-    //           color="#fff"
-    //           boxSize="20"
-    //           rotate="180deg"
-    //         />
-    //       </Blockquote.Root>
-    //     </Box>
-
-    //     <Flex
-    //       mt={{ base: '1rem', md: '4rem' }}
-    //       justifyContent="space-around"
-    //       alignItems="center"
-    //     >
-    //       <Button
-    //         backgroundColor={colors.yellow}
-    //         color="black"
-    //         fontSize="2xl"
-    //         onClick={prevSlide}
-    //       >
-    //         <Box backgroundColor="black" borderRadius="l2" p={1}>
-    //           <LucideArrowLeft color={colors.yellow} />
-    //         </Box>
-    //         Voltar
-    //       </Button>
-    //       <Button
-    //         backgroundColor={colors.yellow}
-    //         color="black"
-    //         fontSize="2xl"
-    //         onClick={nextSlide}
-    //       >
-    //         Avançar
-    //         <Box backgroundColor="black" borderRadius="l2" p={1}>
-    //           <LucideArrowRight color={colors.yellow} />
-    //         </Box>
-    //       </Button>
-    //     </Flex>
-    //   </Box>
-    // </Stack>
   );
 };
