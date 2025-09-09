@@ -22,6 +22,7 @@ export default function Home() {
       <Box id="top-element" />
       <HeaderNav />
       <HeroSection />
+      <Separator display={{ base: 'block', md: 'none' }} height="2rem" />
       <StepsSection />
       <Separator display={{ base: 'block', md: 'none' }} marginBottom="2rem" />
       <QuoteCarousel />
