@@ -35,7 +35,7 @@ export const StepsSection = () => {
     <Stack
       padding="0"
       gap="4"
-      marginTop="5rem"
+      marginTop={{ base: '3rem', md: '5rem' }}
       marginBottom={{ base: '2rem', md: '5rem' }}
       id="steps-section"
     >
