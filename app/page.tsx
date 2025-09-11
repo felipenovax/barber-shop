@@ -9,8 +9,24 @@ import { StepsSection } from './ui/steps-section';
 import { FaqSection } from './ui/faq-section';
 import { DownloadBanner } from './ui/download-banner';
 import { QuoteCarousel } from './ui/quote-carousel';
+import { useEffect, useState } from 'react';
+import { get } from '@vercel/edge-config';
 
 export default function Home() {
+  const [greeting, setGreeting] = useState<string | null>(null);
+  const fetchEdge = async () => {
+    try {
+      const greeting = await get('greeting');
+      console.log(greeting);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEdge();
+  }, []);
+
   return (
     <Container
       maxWidth="1455px"

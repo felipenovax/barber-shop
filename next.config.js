@@ -15,6 +15,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    allowMiddlewareResponseBody: true,
   },
   // Enable emotion for Chakra UI
   compiler: {
