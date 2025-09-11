@@ -1,5 +1,3 @@
-'use client';
-
 import { Box, Container, IconButton, Separator } from '@chakra-ui/react';
 import { colors } from './config/colors';
 import { LucideArrowUp } from 'lucide-react';
@@ -12,20 +10,10 @@ import { QuoteCarousel } from './ui/quote-carousel';
 import { useEffect, useState } from 'react';
 import { get } from '@vercel/edge-config';
 
-export default function Home() {
-  const [greeting, setGreeting] = useState<string | null>(null);
-  const fetchEdge = async () => {
-    try {
-      const greeting = await get('greeting');
-      console.log(greeting);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+export default async function Home() {
+  const greeting = await get<string>('greeting');
 
-  useEffect(() => {
-    fetchEdge();
-  }, []);
+  console.log('Greeting from Edge Config:', greeting);
 
   return (
     <Container
